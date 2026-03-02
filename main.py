@@ -63,14 +63,6 @@ def fit_additive_triangular(
       b(j) = weighted mean over users with T_i>=j of (Y_ij - a(T_i))
     and then set b(1)=0 by shifting:
       delta = b(1);  b <- b - delta;  a <- a + delta
-
-    Args:
-      weights: optional per-user weights w_i >=0 (e.g. bootstrap counts). Default all 1.
-      ridge: small ridge penalty on a and b (optional). If >0, stabilizes tiny counts.
-
-    Returns:
-      a_hat: shape (B+1,) with a_hat[t] defined for t=1..B (index 0 unused)
-      b_hat: shape (B+1,) with b_hat[j] defined for j=1..B (index 0 unused), and b_hat[1]=0.
     """
     n, B = panel.n, panel.B
     if weights is None:
@@ -80,20 +72,14 @@ def fit_additive_triangular(
         if w.shape != (n,):
             raise ValueError("weights must have shape (n,)")
 
-    # initialize
     a = np.zeros(B + 1, dtype=float)
     b = np.zeros(B + 1, dtype=float)
 
-    # precompute index sets to avoid Python conditionals in the loop
-    # users_by_t[t] = list of user indices with T_i=t
     users_by_t: List[List[int]] = [[] for _ in range(B + 1)]
     for i, t in enumerate(panel.T):
         users_by_t[int(t)].append(i)
 
-    # users_ge_j[j] = list of user indices with T_i>=j
     users_ge_j: List[List[int]] = [[] for _ in range(B + 1)]
-    # build via cumulative fill
-    # O(nB) worst-case; for typical B<=200 it's fine.
     for j in range(1, B + 1):
         users_ge_j[j] = [i for i, t in enumerate(panel.T) if t >= j]
 
@@ -105,18 +91,12 @@ def fit_additive_triangular(
                 continue
             num = 0.0
             den = 0.0
-            # sum over users with T_i=t and their j=1..t observations
             for i in idx:
                 wi = w[i]
-                Yi = panel.Y_list[i]  # length t
-                # residual after subtracting b(j)
-                # b indices 1..t correspond to Yi[0..t-1]
+                Yi = panel.Y_list[i]
                 num += wi * float(np.sum(Yi - b[1 : t + 1]))
                 den += wi * t
-            # ridge: add penalty ridge * a(t)^2 -> adds ridge to denominator, 0 to numerator
             if den <= 0:
-    # No effective weight on this row t in this bootstrap replicate
-    # Keep previous estimate (or set to 0.0; keeping is usually more stable)
                 continue
             a_new[t] = num / (den + ridge)
         return a_new
@@ -132,7 +112,6 @@ def fit_additive_triangular(
             for i in idx:
                 t = int(panel.T[i])
                 wi = w[i]
-                # Y_{ij} is Yi[j-1]
                 yij = float(panel.Y_list[i][j - 1])
                 num += wi * (yij - a[t])
                 den += wi
@@ -146,12 +125,10 @@ def fit_additive_triangular(
         a = update_a(a, b)
         b = update_b(a, b)
 
-        # enforce b(1)=0 identifiability
         delta = b[1]
         b[1:] -= delta
         a[1:] += delta
 
-        # compute objective occasionally for convergence check
         if it % 5 == 0 or it == max_iter - 1:
             obj = 0.0
             for i in range(n):
@@ -219,48 +196,24 @@ def simulate_option_A(
     n: int,
     B: int,
     seed: int = 0,
-    # exposure count model
     lam0: float = 2.5,
     gamma: float = 0.9,
-    # correlation between baseline and activity
     corr_u_A: float = 0.3,
     tau_u: float = 0.5,
-    # within-user AR(1)
     rho: float = 0.6,
     sigma0: float = 1.0,
     sigma_decay: float = 0.04,
 ) -> Tuple[TriangularPanel, np.ndarray, np.ndarray]:
-    """
-    Simulate triangular panel under Option A.
-
-    True mean:
-      a_true(t): user-type-by-exposure-count effect (captures heavy/light baseline)
-      b_true(j): learning curve (parallel across user types)
-
-    T_i model:
-      A_i ~ N(0,1), T_i = min(B, 1 + Poisson(lam0 * exp(gamma A_i)))
-
-    Correlated (u_i, A_i) to make T informative:
-      Corr(u_i, A_i) = corr_u_A, Var(u_i)=tau_u^2.
-
-    Noise:
-      eps AR(1) with innovation sd sigma_eta(j) = sigma0 * exp(-sigma_decay*(j-1))
-    """
+    """Simulate triangular panel under Option A."""
     rng = np.random.default_rng(seed)
 
-    # true curves (you can change these)
-    # b_true decreasing (faster over time): e.g. exponential learning benefit
     j = np.arange(1, B + 1)
-    b_true = -0.6 * (1.0 - np.exp(-(j - 1) / 6.0))  # starts 0, decreases to about -0.6
-    b_true[0] = 0.0  # b(1)=0 for identifiability
+    b_true = -0.6 * (1.0 - np.exp(-(j - 1) / 6.0))
+    b_true[0] = 0.0
 
-    # a_true increasing with t (heavy users slower/faster baseline depending on sign)
     tgrid = np.arange(1, B + 1)
-    a_true = 0.25 * np.log1p(tgrid)  # mild trend with t
+    a_true = 0.25 * np.log1p(tgrid)
 
-    # simulate correlated (A_i, u_i)
-    # Build covariance matrix for [A, u]
-    # Var(A)=1, Var(u)=tau_u^2, Cov = corr * tau_u
     cov = corr_u_A * tau_u
     Sigma = np.array([[1.0, cov], [cov, tau_u**2]])
     L = np.linalg.cholesky(Sigma)
@@ -269,12 +222,10 @@ def simulate_option_A(
     A = Au[:, 0]
     u = Au[:, 1]
 
-    # simulate T_i
     lam = lam0 * np.exp(gamma * A)
     T = 1 + rng.poisson(lam=lam)
     T = np.clip(T, 1, B).astype(int)
 
-    # simulate trajectories
     Y_list: List[np.ndarray] = []
     for i in range(n):
         t = int(T[i])
@@ -291,7 +242,6 @@ def simulate_option_A(
 
     panel = TriangularPanel(Y_list=Y_list, T=T, B=B)
 
-    # return with 1-indexed arrays for a,b to match fitter output indexing
     a_true_1 = np.zeros(B + 1); a_true_1[1:] = a_true
     b_true_1 = np.zeros(B + 1); b_true_1[1:] = b_true
     return panel, a_true_1, b_true_1
@@ -438,33 +388,35 @@ def plot_true_mean_surface_3d(
     else:
         plt.close(fig)
 
-
 # -----------------------------
-# Demo / sanity check
+# Experiment runner
 # -----------------------------
 
-def main():
-    n = 20000
-    B = 40
+def run_experiment(
+    label: str,
+    n: int,
+    B: int,
+    sigma_decay: float,
+    do_plots: bool = False,
+    do_plots_3d: bool = False,
+) -> None:
+    """Run one simulation/fit/summary with given sigma_decay."""
+    print(f"\n=== {label} (sigma_decay={sigma_decay}) ===")
 
     panel, a_true, b_true = simulate_option_A(
         n=n, B=B, seed=0,
         lam0=2.0, gamma=0.9,
         corr_u_A=0.35, tau_u=0.6,
-        rho=0.7, sigma0=1.2, sigma_decay=0.05
+        rho=0.7, sigma0=1.2, sigma_decay=sigma_decay
     )
 
     a_hat, b_hat = fit_additive_triangular(panel)
-
-    # naive benchmark
     b_naive = naive_b_curve(panel)
 
-    # bootstrap CI for b(j)
     b_boot = cluster_bootstrap_b(panel, R=300, seed=1)
     lo = np.quantile(b_boot, 0.025, axis=0)
     hi = np.quantile(b_boot, 0.975, axis=0)
 
-    # print a small table for b and pointwise errors
     mse_by_j = (b_hat[1:] - b_true[1:]) ** 2
     mse_by_j_naive = (b_naive[1:] - b_true[1:]) ** 2
     print("j  b_true  b_hat  b_naive  CI_low  CI_high  mse_hat  mse_naive")
@@ -473,19 +425,40 @@ def main():
             f"{j:2d} {b_true[j]:7.3f} {b_hat[j]:7.3f} {b_naive[j]:7.3f} {lo[j]:7.3f} {hi[j]:7.3f} {mse_by_j[j-1]:7.4f} {mse_by_j_naive[j-1]:7.4f}"
         )
 
-    # quick scalar error summaries (ignore identifiability shift handled by b(1)=0)
     mse_b = float(np.mean((b_hat[1:] - b_true[1:])**2))
     mse_b_naive = float(np.mean((b_naive[1:] - b_true[1:])**2))
     print(f"\nMSE(b): {mse_b:.6f}")
     print(f"MSE(b_naive): {mse_b_naive:.6f}")
 
-    # toggle to visualize true curves/surface; kept separate from core logic
-    if True:
+    if do_plots:
         plot_true_curves(a_true, b_true)
         plot_true_mean_surface(a_true, b_true, B)
-        # 3D view (set to True to enable)
-        if True:
+        if do_plots_3d:
             plot_true_mean_surface_3d(a_true, b_true, B)
+
+
+def main():
+    n = 20000
+    B = 40
+
+    run_experiment(
+        label="Baseline (decaying noise)",
+        n=n,
+        B=B,
+        sigma_decay=0.05,
+        do_plots=True,
+        do_plots_3d=False,
+    )
+
+    run_experiment(
+        label="No decay (flat noise)",
+        n=n,
+        B=B,
+        sigma_decay=0.0,
+        do_plots=False,
+        do_plots_3d=False,
+    )
+
 
 if __name__ == "__main__":
     main()
