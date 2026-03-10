@@ -1,0 +1,70 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{3}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Efron(1979)]%
+        {Efron1979}
+\bibfield{author}{\bibinfo{person}{Bradley Efron}.}
+  \bibinfo{year}{1979}\natexlab{}.
+\newblock \showarticletitle{Bootstrap Methods: Another Look at the Jackknife}.
+\newblock \bibinfo{journal}{\emph{The Annals of Statistics}}
+  \bibinfo{volume}{7}, \bibinfo{number}{1} (\bibinfo{year}{1979}),
+  \bibinfo{pages}{1--26}.
+\newblock
+
+
+\bibitem[Field and Welsh(2007)]%
+        {FieldWelsh2007}
+\bibfield{author}{\bibinfo{person}{Christopher~A. Field} {and}
+  \bibinfo{person}{Alan~H. Welsh}.} \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Bootstrapping Clustered Data}.
+\newblock \bibinfo{journal}{\emph{Journal of the Royal Statistical Society:
+  Series B (Statistical Methodology)}} \bibinfo{volume}{69},
+  \bibinfo{number}{3} (\bibinfo{year}{2007}), \bibinfo{pages}{369--390}.
+\newblock
+
+
+\bibitem[van~der Vaart(1998)]%
+        {vdV1998}
+\bibfield{author}{\bibinfo{person}{Aad~W. van~der Vaart}.}
+  \bibinfo{year}{1998}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Asymptotic Statistics}}.
+\newblock \bibinfo{publisher}{Cambridge University Press}.
+\newblock
+
+
+\end{thebibliography}
