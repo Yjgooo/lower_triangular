@@ -48,7 +48,7 @@ where $Y_{ij}$ is the outcome at exposure $j$ for user $i$, $T_i$ is the total n
 
 \section{Introduction}
 
-A product change can affect users differently across repeated exposures. An intervention may attenuate as initial novelty fades, or it may strengthen as users become familiar with a new interface. In such settings, a single average treatment-effect summary can be difficult to interpret and may be inadequate for product decisions. Standard experimentation practice either treats the treatment effect as effectively exposure-invariant or collapses over exposure history into a single summary, and therefore cannot answer rollout questions when user response adapts over repeated exposure.
+A product change can affect users differently across repeated exposures. An intervention may attenuate as initial novelty fades, or it may strengthen as users become familiar with a new interface. In such settings, a single average treatment-effect summary can be difficult to interpret and may be inadequate for product decisions. Standard experimentation practice often emphasizes overall treatment effects and other low-dimensional summaries \cite{Kohavi2008}. Recent work on long-term online experiments has emphasized that such summaries can miss novelty, primacy, and delayed treatment effects \cite{Hohnhold2015,Dmitriev2016,Sadeghi2022}. These papers motivate moving beyond one-number summaries, but their focus is long-term or calendar-time treatment effects. Our object is different: we index response by the exposure count itself and address the composition change induced by the fact that later exposures are observed only for users with longer realized histories.
 
 To motivate the problem, consider an online experiment on a social-networking app. The product team launches a redesigned direct-message reply composer that slightly reduces friction through faster keyboard focus, fewer taps, and quicker attachment access. Heavy and light users may differ substantially in their baseline messaging speed, yet the shape of ``getting used to'' the new interface may still be similar across user types.
 
@@ -82,12 +82,9 @@ This removes the composition problem but introduces $\frac{B(B+1)}{2}$ mean para
 
 These observations suggest a bias--variance tradeoff. We would like a model that adjusts for systematic differences across users with different total exposure counts, while avoiding a fully saturated cell-mean surface. Our proposal is a simple additive conditional-mean model on the triangular domain. It yields an exposure-response curve that is interpretable, easy to estimate, and amenable to bootstrap inference.
 
+Methodologically, our proposal is related to classical repeated-measures analysis. Random-effects models and generalized estimating equations provide general tools for longitudinal outcomes \cite{LairdWare1982,LiangZeger1986}. Our focus is narrower: we exploit the triangular observation structure induced by a finite exposure window and target a parsimonious additive conditional-mean surface indexed by total exposure count and exposure index. This yields an exposure-response estimand tailored to online experimentation and directly addresses the composition bias that accumulates at later exposures.
+
 For clarity, we formulate the method for a single arm. In a two-arm A/B test, one may fit the model separately in each arm and compare the resulting response curves, or apply the same construction to arm-specific contrasts.
-
-\section{Related Work}
-TBD
-
-Our theoretical analysis draws on standard asymptotic arguments for finite-dimensional estimators and on the classical bootstrap. The bootstrap originates with \cite{Efron1979}; general large-sample arguments for consistency, asymptotic normality, and the delta method may be found in \cite{vdV1998}. Because our data are clustered at the user level, resampling must preserve the within-user dependence structure; the user-level bootstrap is consistent in this setting under standard regularity conditions, and our argument is closely related to the general clustered-data discussion in \cite{FieldWelsh2007}.
 
 \section{Setup and Estimand}
 

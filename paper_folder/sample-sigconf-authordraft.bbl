@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{3}
+\begin{thebibliography}{8}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -36,6 +36,19 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
+\bibitem[Dmitriev et~al\mbox{.}(2016)]%
+        {Dmitriev2016}
+\bibfield{author}{\bibinfo{person}{Pavel Dmitriev}, \bibinfo{person}{Brian
+  Frasca}, \bibinfo{person}{Somit Gupta}, \bibinfo{person}{Ron Kohavi}, {and}
+  \bibinfo{person}{Garnet Vaz}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Pitfalls of Long-Term Online Controlled
+  Experiments}. In \bibinfo{booktitle}{\emph{2016 IEEE International Conference
+  on Big Data (Big Data)}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{1367--1376}.
+\newblock
+\href{https://doi.org/10.1109/BIGDATA.2016.7840744}{doi:\nolinkurl{10.1109/BIGDATA.2016.7840744}}
+
+
 \bibitem[Efron(1979)]%
         {Efron1979}
 \bibfield{author}{\bibinfo{person}{Bradley Efron}.}
@@ -47,15 +60,69 @@
 \newblock
 
 
-\bibitem[Field and Welsh(2007)]%
-        {FieldWelsh2007}
-\bibfield{author}{\bibinfo{person}{Christopher~A. Field} {and}
-  \bibinfo{person}{Alan~H. Welsh}.} \bibinfo{year}{2007}\natexlab{}.
-\newblock \showarticletitle{Bootstrapping Clustered Data}.
-\newblock \bibinfo{journal}{\emph{Journal of the Royal Statistical Society:
-  Series B (Statistical Methodology)}} \bibinfo{volume}{69},
-  \bibinfo{number}{3} (\bibinfo{year}{2007}), \bibinfo{pages}{369--390}.
+\bibitem[Hohnhold et~al\mbox{.}(2015)]%
+        {Hohnhold2015}
+\bibfield{author}{\bibinfo{person}{Henning Hohnhold}, \bibinfo{person}{Deirdre
+  O'Brien}, {and} \bibinfo{person}{Diane Tang}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Focusing on the Long-term: It's Good for Users and
+  Business}. In \bibinfo{booktitle}{\emph{Proceedings of the 21th ACM SIGKDD
+  International Conference on Knowledge Discovery and Data Mining}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{1849--1858}.
 \newblock
+\href{https://doi.org/10.1145/2783258.2788583}{doi:\nolinkurl{10.1145/2783258.2788583}}
+
+
+\bibitem[Kohavi et~al\mbox{.}(2008)]%
+        {Kohavi2008}
+\bibfield{author}{\bibinfo{person}{Ron Kohavi}, \bibinfo{person}{Roger
+  Longbotham}, \bibinfo{person}{Dan Sommerfield}, {and}
+  \bibinfo{person}{Randal~M. Henne}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Controlled Experiments on the Web: Survey and
+  Practical Guide}.
+\newblock \bibinfo{journal}{\emph{Data Mining and Knowledge Discovery}}
+  \bibinfo{volume}{18}, \bibinfo{number}{1} (\bibinfo{year}{2008}),
+  \bibinfo{pages}{140--181}.
+\newblock
+\href{https://doi.org/10.1007/s10618-008-0114-1}{doi:\nolinkurl{10.1007/s10618-008-0114-1}}
+
+
+\bibitem[Laird and Ware(1982)]%
+        {LairdWare1982}
+\bibfield{author}{\bibinfo{person}{Nan~M. Laird} {and}
+  \bibinfo{person}{James~H. Ware}.} \bibinfo{year}{1982}\natexlab{}.
+\newblock \showarticletitle{Random-Effects Models for Longitudinal Data}.
+\newblock \bibinfo{journal}{\emph{Biometrics}} \bibinfo{volume}{38},
+  \bibinfo{number}{4} (\bibinfo{year}{1982}), \bibinfo{pages}{963}.
+\newblock
+\href{https://doi.org/10.2307/2529876}{doi:\nolinkurl{10.2307/2529876}}
+
+
+\bibitem[Liang and Zeger(1986)]%
+        {LiangZeger1986}
+\bibfield{author}{\bibinfo{person}{Kung-Yee Liang} {and}
+  \bibinfo{person}{Scott~L. Zeger}.} \bibinfo{year}{1986}\natexlab{}.
+\newblock \showarticletitle{Longitudinal Data Analysis Using Generalized Linear
+  Models}.
+\newblock \bibinfo{journal}{\emph{Biometrika}} \bibinfo{volume}{73},
+  \bibinfo{number}{1} (\bibinfo{year}{1986}), \bibinfo{pages}{13--22}.
+\newblock
+\href{https://doi.org/10.1093/biomet/73.1.13}{doi:\nolinkurl{10.1093/biomet/73.1.13}}
+
+
+\bibitem[Sadeghi et~al\mbox{.}(2022)]%
+        {Sadeghi2022}
+\bibfield{author}{\bibinfo{person}{Soheil Sadeghi}, \bibinfo{person}{Somit
+  Gupta}, \bibinfo{person}{Stefan Gramatovici}, \bibinfo{person}{Jiannan Lu},
+  \bibinfo{person}{Hao Ai}, {and} \bibinfo{person}{Ruhan Zhang}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Novelty and Primacy: A Long-Term Estimator for
+  Online Experiments}.
+\newblock \bibinfo{journal}{\emph{Technometrics}} \bibinfo{volume}{64},
+  \bibinfo{number}{4} (\bibinfo{year}{2022}), \bibinfo{pages}{524--534}.
+\newblock
+\href{https://doi.org/10.1080/00401706.2022.2124309}{doi:\nolinkurl{10.1080/00401706.2022.2124309}}
 
 
 \bibitem[van~der Vaart(1998)]%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.14)  10 MAR 2026 16:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.14)  10 MAR 2026 16:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1011,37 +1011,39 @@ Overfull \hbox (1.1242pt too wide) in paragraph at lines 53--54
 ly re-duces fric-tion through
  []
 
+
+Underfull \vbox (badness 1127) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 84.
-[1.1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+(Font)              scaled to size 6.0pt on input line 80.
+ [1.1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 119.
-<figures/upper_triangular_layout_preview.pdf, id=85, 357.07466pt x 400.4531pt>
+(Font)              scaled to size 9.0pt on input line 116.
+<figures/upper_triangular_layout_preview.pdf, id=88, 357.07466pt x 400.4531pt>
 File: figures/upper_triangular_layout_preview.pdf Graphic file (type pdf)
 <use figures/upper_triangular_layout_preview.pdf>
 Package pdftex.def Info: figures/upper_triangular_layout_preview.pdf  used on i
-nput line 123.
+nput line 120.
 (pdftex.def)             Requested size: 188.09474pt x 210.94981pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 136.
+(Font)              scaled to size 7.3pt on input line 133.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 136.
+(Font)              scaled to size 5.5pt on input line 133.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
+(Font)              scaled to size 9.0pt on input line 175.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 178.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 181.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 181.
-
-[2.2 <./figures/upper_triangular_layout_preview.pdf>]
+(Font)              scaled to size 7.0pt on input line 178.
+ [2.2 <./figures/upper_triangular_layout_preview.pdf>]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.3pt on input line 183.
+(Font)              scaled to size 7.3pt on input line 180.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 5.5pt on input line 183.
+(Font)              scaled to size 5.5pt on input line 180.
 
-Overfull \hbox (10.12201pt too wide) detected at line 206
+Overfull \hbox (10.12201pt too wide) detected at line 203
 \U/ntxsym/m/n/9 E\LMS/ntxsy/m/n/9 »[] j \OML/nxlmi/m/it/9 X\LMS/ntxsy/m/n/9 ¼ \
 U/ntxmia/m/it/9 = \OML/nxlmi/m/it/9 ^^R[];  [] \U/ntxsym/m/n/9 E\LMS/ntxsy/m/n/
 9 »[]¹\OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 º j \OML/nxlmi/m/it/9 X\LMS/ntxsy/m/n
@@ -1051,13 +1053,13 @@ rtineT-TLF/m/n/9 2\OML/nxlmi/m/it/9 :
  []
 
 
-Overfull \hbox (2.06065pt too wide) in paragraph at lines 287--288
+Overfull \hbox (2.06065pt too wide) in paragraph at lines 284--285
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) By the law of large num-bers ap-plied to 
 i.i.d. users, $\OML/nxlmi/m/it/9 Q[] \LMS/ntxsy/m/n/9 ![]
  []
 
 [3.3]
-Overfull \hbox (6.12433pt too wide) detected at line 424
+Overfull \hbox (6.12433pt too wide) detected at line 421
 []\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 º [] \OML/nxlmi/m/it/9 
 b[]\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 º Ï \U/ntxmia/m/it/9 ^
 ^A\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 º\OML/nxlmi/m/it/9 ;  \
@@ -1070,7 +1072,7 @@ U/ntxmia/m/it/9 ^^A\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 º \OT1
  []
 
 
-Overfull \hbox (28.07787pt too wide) detected at line 440
+Overfull \hbox (28.07787pt too wide) detected at line 437
 \U/ntxsym/m/n/9 E\LMS/ntxsy/m/n/9 »\OML/nxlmi/m/it/9 Y[] \LMS/ntxsy/m/n/9 j \OM
 L/nxlmi/m/it/9 T[] \LMS/ntxsy/m/n/9 ^^U \OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 ¼ \
 U/ntxmia/m/it/9 = \U/ntxsym/m/n/9 E\LMS/ntxsy/m/n/9 »\OML/nxlmi/m/it/9 a[]\LMS/
@@ -1085,9 +1087,9 @@ L/nxlmi/m/it/9 :
  []
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/scit' will be
-(Font)              scaled to size 9.0pt on input line 452.
+(Font)              scaled to size 9.0pt on input line 449.
 
-Overfull \hbox (3.19691pt too wide) detected at line 464
+Overfull \hbox (3.19691pt too wide) detected at line 461
 [][]\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 º \U/ntxmia/m/it/9 = 
 [][]\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 º ^^@ \OML/nxlmi/m/it
 /9 c[]; []\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 j\LMS/ntxsy/m/n/9 º Ï \OML/nxlmi/
@@ -1096,7 +1098,7 @@ ML/nxlmi/m/it/9 n[]\LMS/ntxsy/m/n/9 º\OML/nxlmi/m/it/9 ;
  []
 
 
-Overfull \hbox (12.69981pt too wide) detected at line 508
+Overfull \hbox (12.69981pt too wide) detected at line 505
 \OML/nxlmi/m/it/9 a[]\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 t\LMS/ntxsy/m/n/9 º \U
 /ntxmia/m/it/9 = \OT1/LinuxLibertineT-TLF/m/n/9 0\OML/nxlmi/m/it/9 :\OT1/LinuxL
 ibertineT-TLF/m/n/9 25 []\LMS/ntxsy/m/n/9 ¹\OT1/LinuxLibertineT-TLF/m/n/9 1 \LM
@@ -1109,21 +1111,21 @@ xsy/m/n/9 ¹\OT1/LinuxLibertineT-TLF/m/n/9 1\LMS/ntxsy/m/n/9 º \U/ntxmia/m/it/9
  []
 
 [4.4]
-<figures/mse__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png, id=196, 505.89pt x 303.53
+<figures/mse__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png, id=200, 505.89pt x 303.53
 4pt>
 File: figures/mse__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png Graphic file (type pn
 g)
 <use figures/mse__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png>
 Package pdftex.def Info: figures/mse__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png  u
-sed on input line 553.
+sed on input line 550.
 (pdftex.def)             Requested size: 115.74976pt x 69.45009pt.
-<figures/coverage__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png, id=198, 505.89pt x 3
+<figures/coverage__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png, id=202, 505.89pt x 3
 03.534pt>
 File: figures/coverage__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png Graphic file (ty
 pe png)
 <use figures/coverage__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png>
 Package pdftex.def Info: figures/coverage__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.p
-ng  used on input line 558.
+ng  used on input line 555.
 (pdftex.def)             Requested size: 115.74976pt x 69.45009pt.
  (./sample-sigconf-authordraft.bbl)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
@@ -1140,16 +1142,16 @@ Package balance Warning: You have called \balance in second column
 e__B=5_n=1000_snr=0.2_icc=0.2_rho=0.3.png>] (./sample-sigconf-authordraft.aux)
 Package rerunfilecheck Info: File `sample-sigconf-authordraft.out' has not chan
 ged.
-(rerunfilecheck)             Checksum: A0BA610C244A26FBDC48B76D75FB39B7;2068.
+(rerunfilecheck)             Checksum: EC1BC97DA22236F4F802205382B7CED0;1942.
  ) 
 Here is how much of TeX's memory you used:
- 21596 strings out of 478268
- 355219 string characters out of 5846347
- 737078 words of memory out of 5000000
- 38755 multiletter control sequences out of 15000+600000
- 654755 words of font info for 384 fonts, out of 8000000 for 9000
+ 21642 strings out of 478268
+ 356260 string characters out of 5846347
+ 739119 words of memory out of 5000000
+ 38770 multiletter control sequences out of 15000+600000
+ 657506 words of font info for 402 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 84i,17n,131p,1023b,654s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,17n,131p,1028b,654s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc
 }{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{
@@ -1173,10 +1175,10 @@ rtine/LinLibertineTI.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
 pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/lo
 cal/texlive/2022/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on sample-sigconf-authordraft.pdf (5 pages, 574418 bytes).
+Output written on sample-sigconf-authordraft.pdf (5 pages, 577987 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
- 102528 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 313 PDF objects out of 1000 (max. 8388607)
+ 223 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 102520 words of extra memory for PDF output out of 106986 (max. 10000000)
 
