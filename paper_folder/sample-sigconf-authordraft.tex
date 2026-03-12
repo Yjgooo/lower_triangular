@@ -168,7 +168,15 @@ For comparison, we also consider the naive column-mean estimator,
 \frac{1}{n}\sum_{i=1}^n Y_{i1},
 \qquad j=1,\dots,B,
 \]
-with $\hat b_{\mathrm{naive}}(1)=0$. This estimator ignores the change in user composition across exposure indices.
+with $\hat b_{\mathrm{naive}}(1)=0$. This estimator ignores the change in user composition across exposure indices; Figure~\ref{fig:naive-column-pooling} visualizes this composition shift across columns.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.78\linewidth]{figures/naive_column_mean_overlay.pdf}
+  \caption{Naive column-mean pooling for two exposure indices in the upper-triangular layout. Orange highlights show the cells used when forming the column mean at $j=2$ and $j=5$. In general, the naive estimator uses $\{Y_{ij}:T_i\ge j\}$ in column $j$, so each column averages over a different mix of users.}
+  \Description{Upper-triangular exposure grid with observed cells in blue and unobserved cells in gray. Two columns are highlighted in orange: j equals 2 and j equals 5. For j equals 2, the highlighted cells are Y_{2,2}, Y_{3,2}, Y_{4,2}, Y_{5,2}, and Y_{6,2}, so N equals 5 users contribute. For j equals 5, the highlighted cells are Y_{5,5} and Y_{6,5}, so N equals 2 users contribute. The figure illustrates that naive column means are formed from different user subsets at different exposure indices, which induces composition shift across j.}
+  \label{fig:naive-column-pooling}
+\end{figure}
 
 \section{Identification and Finite-Sample Unbiasedness}
 
